@@ -130,21 +130,29 @@ var pokemon =
     dragonite: {ultraball: 2090, taleball: 1460, soraball: 1460, heavyball: 1460}
 }
 
+
+document.getElementById('pokemonName').addEventListener("keyup", function(event){
+    if(event.key === "Enter")
+    {
+        getPokemon();
+    }
+})
+
 function getPokemon()
 {
     var text = document.getElementById('pokemonName').value.toLowerCase();
-    if(text == "farfetch'd")
+    if(text === "farfetch'd")
     {
         text = 'farfetchd';
     }
-    else if(text == 'mr mime')
+    else if(text === 'mr mime')
     {
         text = 'mr.mime';
     }
-    /*if(!pokemon[text])
+    if(!pokemon[text])
     {
         alert("pokemon not found");
-    }*/
+    }
 
     var submitText = "";
     elements = document.getElementById("pokemonInfo");
@@ -152,7 +160,7 @@ function getPokemon()
     submitText = submitText + '<br>';
     for(key in pokemon[text])
     {
-        submitText = submitText + '<span>' + pokemon[text][key] + '<img src="images/' + key + '.png"> </span>';
+        submitText = submitText + '<span>' + pokemon[text][key] + '<img class="ball" src="images/' + key + '.png"> </span>';
     }
 
     document.getElementById("pokemonStats").innerHTML = submitText;
