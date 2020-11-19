@@ -115,7 +115,7 @@ var pokemon =
     goldeen: {pokeball: 30, greatball: 20, superball: 8, ultraball: 4, netball: 3},
     seaking: {greatball: 300, superball: 108, ultraball: 50, netball: 35},
     staruy: {pokeball: 60, greatball: 40, superball: 15, ultraball: 7, netball: 5, yumeball: 5},
-    starmie: {ultraball: 50, netball: 35, yumeball: 35, fastball: 35},
+    starmie: {ultraball: 300, netball: 210, yumeball: 210, fastball: 210},
     jynx: {ultraball: 2000, soraball: 1400, yumeball: 1400},
     electabuzz: {ultraball: 2000, tinkerball: 1400},
     magmar: {ultraball: 2000, maguball: 1400},
