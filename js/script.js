@@ -349,6 +349,7 @@ function getPokemon()
     if(!pokemon[text])
     {
         alert("pokemon não existe ou não tem média.");
+        return;
     }
 
     var submitText = "";
