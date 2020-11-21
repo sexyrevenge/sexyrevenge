@@ -161,7 +161,7 @@ var pokemon =
     ampharos: {ultraball: 300, tinkerball: 210},
     bellossom: {superball: 430, ultraball: 200, janguruball: 140},
     maril: {pokeball: 450, greatball: 300, superball: 108, ultraball: 50, netball: 35, taleball: 35},
-    azumarill: {superball: 470, ultraball: 220, netball: 160, taleball: 160},
+    azumarill: {ultraball: 300, netball: 210, taleball: 210},
     politoed: {superball: 290, ultraball: 140, netball: 100},
     hoppit: {pokeball: 12, greatball: 8, superball: 3, ultraball: 2, janguruball: 1, soraball: 1},
     skiploom: {pokeball: 338, greatball: 225, superball: 81, ultraball: 38, janguruball: 27, soraball: 27},
