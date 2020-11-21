@@ -67,7 +67,7 @@ var pokemon =
     machamp: {ultraball: 350, duskball: 250, heavyball: 250, fastball: 250},
     bellsprout: {pokeball: 12, greatball: 8, superball: 3, ultraball: 3, janguruball: 1},
     weepinbell: {pokeball: 338, greatball: 225, superball: 81, ultraball: 38, janguruball: 27},
-    victreebell: {superball: 430, ultraball: 200, janguruball: 140},
+    victreebel: {superball: 430, ultraball: 200, janguruball: 140},
     tentacool: {pokeball: 45, greatball: 30, superball: 11, ultraball: 5, netball: 4, janguruball: 4},
     tentacruel: {ultraball: 250, netball: 180, janguruball: 180},
     geodude: {pokeball: 45, greatball: 30, superball: 11, ultraball: 5, duskball: 4, maguball: 4},
