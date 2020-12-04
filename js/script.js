@@ -33,7 +33,7 @@ var pokemon =
     nidoking: { saffariball: 600},
     clefairy: { greatball: 800, superball: 290, ultraball: 140, taleball: 100},
     clefable: { ultraball: 300, taleball: 210},
-    vuplix: { pokeball: 150, greatball: 100, superball: 36, ultraball: 17, maguball: 12},
+    vulpix: { pokeball: 150, greatball: 100, superball: 36, ultraball: 17, maguball: 12},
     ninetales: {ultraball: 190, maguball: 130, fastball: 130},
     jigglypuff: {greatball: 800, superball: 290, ultraball: 140, taleball: 100, yumeball: 100},
     wigglytuff: { ultraball: 300, taleball: 210, yumeball: 210},
@@ -114,7 +114,7 @@ var pokemon =
     netball: 70},
     goldeen: {pokeball: 30, greatball: 20, superball: 8, ultraball: 4, netball: 3},
     seaking: {greatball: 300, superball: 108, ultraball: 50, netball: 35},
-    staruy: {pokeball: 60, greatball: 40, superball: 15, ultraball: 7, netball: 5, yumeball: 5},
+    staryu: {pokeball: 60, greatball: 40, superball: 15, ultraball: 7, netball: 5, yumeball: 5},
     starmie: {ultraball: 300, netball: 210, yumeball: 210, fastball: 210},
     jynx: {ultraball: 2000, soraball: 1400, yumeball: 1400},
     electabuzz: {ultraball: 2000, tinkerball: 1400},
@@ -327,17 +327,77 @@ var pokemon =
     diggersby: {ultraball: 220, yumeball: 160, maguball: 160},
 }
 
+var pokemonNames = ["bulbasaur", "ivysaur", "venusaur",  "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "pidgey", "pidgeotto",
+"pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu",
+"sandshrew", "sandslash", "nidoranfe", "nidorina", "nidoqueen", "nidoranma", "nidorino", "nidoking",
+"clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish",
+"vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian",
+"psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath",
+"abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel",
+"tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro",
+"magnemite", "magneton", "farfetch'd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder",
+"cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb",
+"electrode", "exeggcute", "exeggutor", "cubone", "marowak", "lickitung", "koffing", "weezing", "rhyhorn",
+"rhydon", "tangela", "horsea", "seadra"," goldeen", "seaking", "staryu", "starmie", "jynx", "electabuzz",
+"magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "snorlax", "dratini", "dragonair",
+"dragonite", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile",
+"croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak",
+"ariados", "crobat", "chinchou", "lanturn", "pichu"," cleffa", "igglybuff", "togepi", "togetic", "natu",
+"xatu", "mareep", "flaaffy", "ampharos", "bellossom", "maril", "azumarill", "politoed", "hoppit", "skiploom",
+"jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "murkrow", "girafarig", "pineco",
+"forretress", "dunsparce", "gliglar", "steelix", "snubbull", "granbull", "qwilfish", "shuckle", "heracross",
+"sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid",
+"octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan",
+"stantler", "smoochum", "elekid", "magby", "miltank", "larvitar", "pupitar", "tyranitar", "treecko",
+"grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena",
+"mightyena", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull",
+"pelipper", "shroomish", "breloom", "salkoth", "vigoroth", "nincada", "whismur", "loudred", "exploud",
+"nosepass", "sableye", "mawile", "aron", "lairon", "meditite", "medicham", "electrike", "manectric",
+"plusle", "minum", "numel", "camerupt", "spoink", "grumpig", "trapinch", "vibrava", "flygon", "swablu",
+"altaria", "zangoose", "seviper", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "feebas",
+"kecleon", "shyppet", "banette", "duskull", "dusclops", "snorunt", "glalie", "spheal", "sealeo", "walrein",
+"bagon", "shelgon", "beldum", "metang", "pachirisu", "ambipom", "bronzor", "bronzong", "riolu", "lucario",
+"hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "lickilicky", "gliscor",
+"probopass", "froslass", "blitzle", "zebstrika", "drillbur", "excadrill", "timburr", "gurdurr", "darumaka",
+"darmanitan", "dwebble", "crustle", "emolga", "joltik", "galvantula", "ferroseed", "ferrothorn", "litwick",
+"lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "pawniard", "bisharp",
+"bunnelby", "diggersby"];
 
-document.getElementById('pokemonName').addEventListener("keyup", function(event){
+//selecting dropwdown suggestions via keyboard
+var currentFocus = -1;
+const UP = 0
+const DOWN = 1;
+document.getElementById("pokemonName").addEventListener("keydown", function(event){
+    switch(event.key)
+    {
+        case "ArrowDown":
+            Focus(DOWN);
+            break;
+        case "ArrowUp":
+            Focus(UP);
+            break;
+    }
+});
+
+document.getElementById("pokemonName").addEventListener("keyup", function(event){
     if(event.key === "Enter")
     {
-        getPokemon();
+        if(currentFocus >-1)
+        {
+            document.getElementById("pokemonName").value = document.getElementById("suggestions").children[currentFocus].innerHTML;
+            currentFocus = -1;
+        }
+        GetPokemon();
     }
-})
+    else if((event.key >= "a" && event.key <= "z") || event.key === "Backspace")
+    {
+        AutoComplete();
+    }
+});
 
-function getPokemon()
+function GetPokemon()
 {
-    var text = document.getElementById('pokemonName').value.toLowerCase();
+    let text = document.getElementById("pokemonName").value.toLowerCase();
     if(text === "farfetch'd")
     {
         text = 'farfetchd';
@@ -352,7 +412,7 @@ function getPokemon()
         return;
     }
 
-    var submitText = "";
+    let submitText = "";
     elements = document.getElementById("pokemonInfo");
     submitText = '<img src="images/' + text + '.png">'
     submitText = submitText + '<br>';
@@ -362,4 +422,95 @@ function getPokemon()
     }
 
     document.getElementById("pokemonStats").innerHTML = submitText;
+    DeleteSuggestions();
 }
+
+const displayedSuggestionLimit = 5;
+function AutoComplete()
+{
+    let text = document.getElementById("pokemonName").value.toLowerCase();
+    if(text === "")
+    {
+        DeleteSuggestions();
+        return;
+    }
+
+    let suggestionArray = GetSuggestionArray(text);
+    let submitList = '';
+    let currentDisplayedSuggestionCount = 0;
+    
+    for(let suggestionArrayCount = 0; suggestionArrayCount < suggestionArray.length; suggestionArrayCount++)
+    {
+        submitList = submitList + '<div onclick="SuggestionClicked(this)">' + suggestionArray[suggestionArrayCount] + '</div>';
+        currentDisplayedSuggestionCount++;
+        if(currentDisplayedSuggestionCount == displayedSuggestionLimit)
+        {
+            break;
+        }
+    }
+
+    document.getElementById("suggestions").innerHTML = submitList;  
+}
+
+function GetSuggestionArray(value)
+{
+    return pokemonNames.filter((filteredName) => 
+    {
+        return filteredName.includes(value);
+    });
+}
+
+function SuggestionClicked(clickedElement)
+{
+    document.getElementById("pokemonName").value = clickedElement.innerHTML;
+    DeleteSuggestions();
+    GetPokemon();
+}
+
+function Focus(direction)
+{
+    if(direction === UP)
+    {
+        if(currentFocus === -1)
+        {
+            return;
+        }
+        let children = document.getElementById("suggestions").children;
+        //remove current focus (css .autocomplete-active)
+        children[currentFocus].classList.remove("autocomplete-active");
+        
+        //go to the destination
+        currentFocus--;
+        if(currentFocus !== -1)
+        {
+            //add focus (css .autocomplete-active)
+            children[currentFocus].classList.add("autocomplete-active");
+        }    
+    }
+    else if(direction === DOWN)
+    {
+        let children = document.getElementById("suggestions").children;
+
+        if(currentFocus === children.length - 1)
+        {
+            return;
+        }
+
+        if(currentFocus !== -1)
+        {
+            //remove current focus (css .autocomplete-active)
+            children[currentFocus].classList.remove("autocomplete-active");
+        }
+
+        //go to the destination
+        currentFocus++;
+        //add focus (css .autocomplete-active)
+        children[currentFocus].classList.add("autocomplete-active");  
+    }
+}
+
+function DeleteSuggestions()
+{
+    document.getElementById("suggestions").innerHTML = "";
+}
+

@@ -8,23 +8,25 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!--css-->
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Média ball</title>
 </head>
 <body>
     <div class="row justify-content-center">
         <div class="col-sm-12 ">
             <h1 class="text-center">digite o nome do pokemon</h1>
-            <div class="input-group mb-3" id="input">
-                <input type="text" class="form-control" id="pokemonName" placeholder="" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2">
-                <div class="input-group-append">
+            <div class="input-group mb-3">
+                <div class="inputText">
+                    <input type="text" class="form-control" id="pokemonName" placeholder="" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2">
+                    <div class="autocomplete-items" id="suggestions"></div>
+                </div>
+                <div class="input-group-append submitButton">
                     <button class="btn btn-outline-secondary" type="button" id="submitPokemon" onclick="getPokemon()">Button</button>
                 </div>
             </div>
         </div>
         <div id="pokemonStats"></div>
     </div>
-    
 </body>
 <script src="js/script.js"></script>
 </html>
