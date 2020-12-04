@@ -329,7 +329,7 @@ var pokemon =
 
 var pokemonNames = ["abra", "aipom", "alakazam", "altaria", "ambipom", "ampharos", "arbok", "arcanine", "ariados", "aron", "axew", "azumarill",
 "azurill", "bagon", "baltoy", "banette", "bayleef", "beartic", "beautifly", "beedrill", "beldum", "bellossom", "bellsprout", "bisharp",
-"blastoise", "blaziken", "blitzle", "breloom", "bronzong", "bronzor", "bulbasaur", "buneary", "bunnelby", "butterfree", "camerupt", "castform",
+"blastoise", "blaziken", "blitzle", "breloom", "bronzong", "bronzor", "bulbasaur", "buneary", "bunnelby", "butterfree", "camerupt",
 "caterpie", "chandelure", "charizard", "charmander", "charmeleon", "chikorita", "chinchou", "claydol", "clefable", "clefairy", "cleffa",
 "cloyster", "combusken", "conkeldurr", "corphish", "corsola", "crawdaunt", "croagunk", "crobat", "croconaw", "crustle", "cubchoo", "cubone",
 "cyndaquil", "darmanitan", "darumaka", "delibird", "dewgong", "diggersby", "diglett", "dodrio", "doduo", "donphan", "dragonair", "dragonite",
@@ -421,21 +421,32 @@ function GetPokemon()
 const displayedSuggestionLimit = 5;
 function AutoComplete()
 {
-    let text = document.getElementById("pokemonName").value.toLowerCase();
+    var text = document.getElementById("pokemonName").value.toLowerCase();
     if(text === "")
     {
         DeleteSuggestions();
         return;
     }
 
-    let suggestionArray = GetSuggestionArray(text);
     let submitList = '';
     let currentDisplayedSuggestionCount = 0;
-    
-    for(let suggestionArrayCount = 0; suggestionArrayCount < suggestionArray.length; suggestionArrayCount++)
+    for(let pokemonNamesCount = 0; pokemonNamesCount < pokemonNames.length; pokemonNamesCount++)
     {
-        submitList = submitList + '<div onclick="SuggestionClicked(this)">' + suggestionArray[suggestionArrayCount] + '</div>';
-        currentDisplayedSuggestionCount++;
+        let equalMatch = true;
+        for(let textCount = 0; textCount < text.length; textCount++)
+        {
+            if(pokemonNames[pokemonNamesCount][textCount] !== text[textCount])
+            {
+                equalMatch = false;
+                break;
+            }
+            let mas = text[textCount];
+        }
+        if(equalMatch)
+        {
+            submitList = submitList + '<div onclick="SuggestionClicked(this)">' + pokemonNames[pokemonNamesCount] + '</div>';
+            currentDisplayedSuggestionCount++;
+        }
         if(currentDisplayedSuggestionCount == displayedSuggestionLimit)
         {
             break;
@@ -443,14 +454,6 @@ function AutoComplete()
     }
 
     document.getElementById("suggestions").innerHTML = submitList;  
-}
-
-function GetSuggestionArray(value)
-{
-    return pokemonNames.filter((filteredName) => 
-    {
-        return filteredName.includes(value);
-    });
 }
 
 function SuggestionClicked(clickedElement)
